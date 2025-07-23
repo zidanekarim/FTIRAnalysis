@@ -1,9 +1,10 @@
 import os
-path = "data/"
+import matplotlib.pyplot as plt
 
+path = "FTIRAnalysis/data/"
+graphpath = "graphs/"
 filenames = [i for i in os.listdir(path) if i.endswith(".txt")]
 
-import matplotlib.pyplot as plt
 def plot_spectrum(filename):
     filepath = os.path.join(path, filename)
     
@@ -68,5 +69,23 @@ def plot_spectrum_overlayed(filenames):
     plt.grid()
     plt.show()
 
-files = ["FleeceControl1.txt", "FleeceNatural1Weeks_11.txt", "FleeceNatural2Weeks_11.txt"]
-plot_spectrum_overlayed(files)
+fleece_natural = ["FleeceControl1.txt", "FleeceNatural1Weeks_11.txt", "FleeceNatural2Weeks_11.txt", 
+                 "FleeceNat3Week11.txt"]
+fleece_synthetic = ["FleeceControl1.txt", "FleeceUV3Weeks_11.txt", "FleeceUV2Weeks_11.txt",   "FleeceUV1Weeks_11.txt"]
+
+nylon_natural = ["NylonControl1.txt", "NylonNatural1Weeks_11.txt", "NylonNatural2Weeks_11.txt", 
+                 "NylonNat3Weeks_11.txt"]
+nylon_synthetic = ["NylonControl1.txt", "NylonUV3Weeks_11.txt", "NylonUV2Weeks_11.txt",   "NylonUV1Weeks_11.txt"]
+
+polyester_natural = ["PolyesterControl1.txt", "PolyesterNatural1Weeks_11.txt", "PolyesterNatural2Weeks_11.txt", 
+                 "PolyesterNat3Week1.txt"]
+
+polyester_synthetic = ["PolyesterControl1.txt", "PolyesterUV3Weeks_11.txt", "PolyesterUV2Weeks_11.txt",   "PolyesterUV1Weeks_11.txt"]
+
+
+plot_spectrum_overlayed(fleece_natural)
+plot_spectrum_overlayed(fleece_synthetic)
+plot_spectrum_overlayed(nylon_natural)
+plot_spectrum_overlayed(nylon_synthetic)
+plot_spectrum_overlayed(polyester_natural)
+plot_spectrum_overlayed(polyester_synthetic)
