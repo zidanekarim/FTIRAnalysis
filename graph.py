@@ -59,7 +59,16 @@ def plot_spectrum_overlayed(filenames):
                 if len(parts) == 2:
                     wavenumbers.append(float(parts[0]))
                     transmittance.append(float(parts[1]))
-        
+        filename = filename.replace(".txt", "") # cleaning filename for better display
+        underscore_index = filename.find('_')
+        if underscore_index != -1:
+            filename = filename[:underscore_index]
+        if filename.endswith('1'):
+            filename = filename[:-1]
+        # one_index = filename.find('1')
+        # if one_index != -1:
+        #     filename = filename[:one_index]
+        filename = filename.replace("Weeks", "Wk").replace("Week", "Wk")
         plt.plot(wavenumbers, transmittance, label=filename)
     
     plt.xlabel("Wavenumber (cm⁻¹)")
